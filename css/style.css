@@ -1,0 +1,664 @@
+
+/* =========================================
+   UNIFORM TRACKER
+   THEME: CRIMSON TACTICAL
+   VERSION: 2.1 - STABLE SIDEBAR
+========================================= */
+
+/* 1. ROOT VARIABLES */
+:root {
+    --sidebar: #171717;
+    --secondary: #292929;
+    --primary: #991B1B;
+    --accent: #DC2626;
+    --background: #F3F4F6;
+    --white: #FFFFFF;
+    --text: #1F2937;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+    --success: #15803D;
+    --warning: #D97706;
+    --danger: #DC2626;
+
+    --sidebar-width: 260px;
+    --sidebar-mobile-width: 75px;
+
+    --brand-font: 'Orbitron', sans-serif;
+    --body-font: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 2. GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: var(--body-font);
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 3. APP LAYOUT */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* 4. SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+
+    height: 100vh;
+    padding: 25px 15px;
+
+    background: var(--sidebar);
+    color: var(--white);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    z-index: 1000;
+
+    flex: 0 0 var(--sidebar-width);
+
+    transition: none;
+}
+
+/* Sidebar Brand */
+.sidebar-brand {
+    width: 100%;
+    min-width: 0;
+
+    padding: 0 12px 30px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #383838;
+    overflow: hidden;
+}
+
+.sidebar-brand h4 {
+    font-family: var(--brand-font);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--white);
+    white-space: nowrap;
+}
+
+.sidebar-brand span {
+    color: var(--accent);
+}
+
+.sidebar-brand p {
+    font-size: 11px;
+    color: #9CA3AF;
+    margin-top: 5px;
+}
+
+/* Sidebar Logo */
+.sidebar-logo,
+.sidebar-logo-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-logo {
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.sidebar-logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.sidebar-logo-text {
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    width: 100%;
+    min-width: 0;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.sidebar-menu a {
+    width: 100%;
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 15px;
+
+    color: #D1D5DB;
+    border-radius: 7px;
+    font-size: 14px;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.sidebar-menu i {
+    width: 22px;
+    min-width: 22px;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.sidebar-menu .menu-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 5. MAIN CONTENT */
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+
+    min-width: 0;
+    min-height: 100vh;
+
+    padding: 30px;
+}
+
+/* 6. TOPBAR */
+.topbar {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    background: var(--white);
+    padding: 18px 22px;
+
+    border-radius: 10px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-left: 4px solid var(--primary);
+
+    min-height: 75px;
+}
+
+.topbar h5 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 17px;
+    color: var(--text);
+}
+
+/* Topbar User */
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+    font-size: 14px;
+}
+
+.user-info strong {
+    color: var(--text);
+}
+
+.user-info small {
+    color: var(--muted);
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FEE2E2;
+    color: var(--primary);
+
+    border-radius: 50%;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+#logoutBtn {
+    background: var(--primary);
+    border: none;
+    color: var(--white);
+
+    padding: 9px 13px;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: #7F1D1D;
+}
+
+/* 7. TOPBAR BRANDING */
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.topbar-brand img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.topbar-brand .brand-text {
+    font-family: var(--brand-font);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.topbar-brand .brand-text span {
+    color: var(--accent);
+}
+
+.user-role {
+    background: #FEE2E2;
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* 8. PAGE HEADER */
+.page-header,
+.page-heading {
+    margin-bottom: 25px;
+}
+
+.page-header h2,
+.page-heading h2 {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.page-header p,
+.page-heading p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* 9. STATISTIC CARDS */
+.stat-card {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    height: 100%;
+}
+
+.stat-card h6 {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.stat-card .stat-icon {
+    font-size: 27px;
+    color: var(--primary);
+}
+
+/* 10. CONTENT CARDS */
+.content-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.content-card h5 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card-header-custom {
+    padding: 18px 22px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.card-body-custom {
+    padding: 22px;
+}
+
+/* 11. BUTTONS */
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-danger {
+    background: var(--danger);
+}
+
+.btn {
+    border-radius: 7px;
+}
+
+/* 12. FORMS */
+.form-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-control,
+.form-select {
+    min-height: 43px;
+    border-radius: 7px;
+    border-color: var(--border);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(153,27,27,0.12);
+}
+
+/* 13. TABLES */
+.table {
+    vertical-align: middle;
+}
+
+.table thead th {
+    background: var(--secondary);
+    color: var(--white);
+    font-size: 13px;
+    padding: 14px;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 13px;
+    font-size: 14px;
+}
+
+.table tbody tr:hover {
+    background: #FEF2F2;
+}
+
+/* 14. STATUS BADGES */
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-active,
+.status-present {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.status-inactive,
+.status-absent {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+/* 15. CHART CONTAINER */
+.chart-container {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 10px;
+    min-height: 300px;
+}
+
+/* 16. LOGIN PAGE */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #171717,
+        #292929,
+        #991B1B
+    );
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.login-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+}
+
+/* 17. LOGOUT BUTTON */
+.logout-btn {
+    color: #FCA5A5;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    color: var(--white);
+}
+
+/* 18. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: var(--sidebar-mobile-width);
+        min-width: var(--sidebar-mobile-width);
+        max-width: var(--sidebar-mobile-width);
+        padding: 20px 8px;
+    }
+
+    .sidebar-brand {
+        padding: 0 0 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidebar-brand h4,
+    .sidebar-brand p,
+    .sidebar-menu .menu-text {
+        display: none;
+    }
+
+    .sidebar-logo-text {
+        width: 40px;
+        height: 40px;
+        font-size: 21px;
+    }
+
+    .sidebar-menu a {
+        justify-content: center;
+        padding: 13px 5px;
+    }
+
+    .sidebar-menu i {
+        font-size: 21px;
+    }
+
+    .main-content {
+        margin-left: var(--sidebar-mobile-width);
+        width: calc(100% - var(--sidebar-mobile-width));
+        padding: 18px;
+    }
+
+    .topbar {
+        padding: 15px;
+        min-height: 65px;
+    }
+
+    .topbar-brand {
+        gap: 7px;
+    }
+
+    .topbar-brand img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .topbar-brand .brand-text {
+        font-size: 11px;
+        letter-spacing: 0.8px;
+    }
+
+    .user-info {
+        gap: 7px;
+        font-size: 12px;
+    }
+
+    .user-role {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+
+    .page-header h2,
+    .page-heading h2 {
+        font-size: 21px;
+    }
+
+    .login-card {
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .topbar {
+        padding: 12px;
+    }
+
+    .topbar-brand .brand-text {
+        font-size: 9px;
+        letter-spacing: 0.4px;
+    }
+
+    .topbar-brand img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .user-info {
+        gap: 5px;
+    }
+
+    .user-role {
+        font-size: 8px;
+        padding: 4px 6px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .content-card {
+        padding: 16px;
+    }
+
+    .topbar-user {
+        gap: 6px;
+    }
+
+    #logoutBtn {
+        padding: 8px;
+        font-size: 11px;
+    }
+}
